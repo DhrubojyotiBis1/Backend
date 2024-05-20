@@ -1,3 +1,5 @@
+import uvicorn
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
@@ -27,3 +29,6 @@ def main_function():
     to documentation (`/docs/`).
     """
     return RedirectResponse(url="/docs/")
+
+if __name__ == "__main__":
+    uvicorn.run(app="main:app", host="0.0.0.0", port=8080, reload='true')

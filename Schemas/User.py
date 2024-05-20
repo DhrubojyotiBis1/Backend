@@ -1,12 +1,7 @@
-from ..Config.database import Base
-from sqlalchemy import Column, String, Integer
+from pydantic import BaseModel
 
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(length=50))
-    mail = Column(String(length=100))
-    phone = Column(String(length=15))
-    type = Column(Integer, default=0)
-    #add created date
+class User(BaseModel):
+    name: str 
+    phone: str
+    mail: str
+    type: str = 0
